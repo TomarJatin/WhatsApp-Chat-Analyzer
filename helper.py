@@ -6,7 +6,6 @@ from wordcloud import WordCloud
 from collections import Counter
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-nltk.download('vader_lexicon')
 
 
 extract = URLExtract()
