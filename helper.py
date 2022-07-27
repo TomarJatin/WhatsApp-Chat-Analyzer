@@ -1,11 +1,9 @@
-from os import sep
 import emoji
 import pandas as pd
 from urlextract import URLExtract
 from wordcloud import WordCloud
 from collections import Counter
-import nltk
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+#from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
 extract = URLExtract()
@@ -100,28 +98,28 @@ def month_activity_map(selected_user,df):
 
     return df['month'].value_counts()
 
-def find_sentiment(selected_user, df):
-    if selected_user != 'Overall':
-        df = df[df['contact'] == selected_user]
+#def find_sentiment(selected_user, df):
+#    if selected_user != 'Overall':
+#        df = df[df['contact'] == selected_user]
 
-    df = df[df['contact'] != 'group_notification']
-    df = df[df['message']!= "<Media omitted>"]
+#    df = df[df['contact'] != 'group_notification']
+#   df = df[df['message']!= "<Media omitted>"]
 
-    sentiments = SentimentIntensityAnalyzer()
-    df['positive'] = [sentiments.polarity_scores(i)["pos"] for i in df['message']]
-    df['negative'] = [sentiments.polarity_scores(i)["neg"] for i in df['message']]
-    df['neutral'] = [sentiments.polarity_scores(i)["neu"] for i in df['message']]
+#    sentiments = SentimentIntensityAnalyzer()
+#    df['positive'] = [sentiments.polarity_scores(i)["pos"] for i in df['message']]
+#    df['negative'] = [sentiments.polarity_scores(i)["neg"] for i in df['message']]
+#    df['neutral'] = [sentiments.polarity_scores(i)["neu"] for i in df['message']]
 
-    a = sum(df['positive'])
-    b = sum(df['negative'])
-    c = sum(df['neutral'])
+#    a = sum(df['positive'])
+#    b = sum(df['negative'])
+#    c = sum(df['neutral'])
 
-    if a>b and a>c:
-        return "POSITIVE"
-    elif b>a and b>c:
-        return "NEGATIVE"
-    else:
-        return "NEUTRAL"
+#    if a>b and a>c:
+#        return "POSITIVE"
+#    elif b>a and b>c:
+#        return "NEGATIVE"
+#    else:
+#        return "NEUTRAL"
 
 
 
