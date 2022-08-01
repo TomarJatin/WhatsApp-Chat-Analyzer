@@ -3,7 +3,6 @@ import streamlit as st
 import preprocessor
 import helper
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 st.sidebar.title("Whatsapp Chat Analyzer")
 
@@ -44,8 +43,8 @@ if uploaded_file :
             st.header("Links Shared")
             st.title(num_links)
 
-        #sentiment = helper.find_sentiment(selected_user, df)
-        #st.title(f"Overall Sentiment- {sentiment} ")
+        sentiment = helper.find_sentiment(selected_user, df)
+        st.title(f"Overall Sentiment- {sentiment} ")
 
         # Monthly Timeline
         st.title("Monthly Timeline")
